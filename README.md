@@ -10,14 +10,26 @@ not coming from package repositories.
 
 ### Using a pre-compiled script
 
-*TODO*
+1. [Download the latest compiled script](https://github.com/Calinou/integrate/releases/download/continuous/integrate).
+2. Make the script executable.
+3. Move it somewhere into your `PATH`.
+
+Enter the commands below in a terminal to perform those steps:
+
+```
+wget https://github.com/Calinou/integrate/releases/download/continuous/integrate
+chmod +x integrate
+sudo mv integrate /usr/local/bin/
+```
+
+4. Done! See the **Usage** section below for usage instructions.
 
 ### From source
 
 1. Install [Argbash](https://argbash.io/) somewhere in your `PATH`.
 2. Clone this repository or [download a ZIP archive](https://github.com/Calinou/integrate/archive/master.zip).
 3. Change into the repository's root directory then type `make && sudo make install`.
-4. Enjoy!
+4. Done! See the **Usage** section below for usage instructions.
 
 ## Usage
 
