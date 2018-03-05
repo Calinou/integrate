@@ -1,0 +1,29 @@
+language: c
+dist: trusty
+sudo: false
+
+# Install dependencies
+before_script:
+  - sudo apt-get update
+  - sudo apt-get install wget unzip
+
+# Build the `integrate` script
+script:
+  - wget https://github.com/matejak/argbash/archive/2.6.1.zip
+  - unzip "2.6.1.zip"
+  - mv "argbash-2.6.1/" "argbash/"
+  - export PATH="$(pwd)/argbash/bin:$PATH"
+  - make
+  - mkdir -p "out/"
+  - mv "integrate" "out/"
+
+# Upload artifacts to GitHub Releases
+after_success:
+  - ls -lh out/*
+  - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+  - bash upload.sh out/*
+
+# Do not build tags that we create when we upload to GitHub Releases
+branches:
+  except:
+    - /^(?i:continuous)$/
